@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to Get API Credentials for the OpenAI API</title>
+<style>
+  /* Mobile-first base styles */
+  :root {
+    --bg-color: #0d1117;
+    --text-color: #c9d1d9;
+    --accent-color: #00FFD1;
+    --link-hover: #1f6feb;
+    --code-bg: #161b22;
+    --border-color: #30363d;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    padding: 1rem;
+    margin: 0;
+  }
+
+  article {
+    max-width: 700px;
+    margin: auto;
+    background-color: #161b22;
+    padding: 1.5rem 1rem 2rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(88, 166, 255, 0.2);
+  }
+
+  h1, h2, h3 {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  a {
+    color: var(--accent-color);
+    text-decoration: none;
+    word-break: break-word;
+  }
+  a:hover, a:focus {
+    color: var(--link-hover);
+    text-decoration: underline;
+  }
+
+  ul {
+    margin-left: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  pre {
+    background-color: var(--code-bg);
+    color: #f0f6fc;
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    font-family: 'Fira Mono', Consolas, Monaco, 'Courier New', monospace;
+    font-size: 0.95rem;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+  }
+
+  code {
+    background-color: var(--code-bg);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Fira Mono', Consolas, Monaco, 'Courier New', monospace;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 2rem 0;
+  }
+
+  /* Larger screens */
+  @media (min-width: 600px) {
+    body {
+      padding: 2rem;
+    }
+
+    article {
+      padding: 2.5rem 3rem 3rem 3rem;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+    }
+  }
+</style>
+</head>
+<body>
+<article>
+  <h1>How to Get API Credentials for the OpenAI API</h1>
+  <p>
+    If you want to integrate OpenAI’s powerful language models into your application, you’ll need API credentials to authenticate your requests. Here’s a simple guide on how to obtain those credentials.
+  </p>
+
+  <h2>Step 1: Create an OpenAI Account</h2>
+  <p>
+    First, visit 
+    <a href="https://openai.com/" target="_blank" rel="noopener noreferrer">OpenAI’s website</a> 
+    and sign up for an account if you haven’t already. You’ll need a valid email address to complete the registration.
+  </p>
+
+  <h2>Step 2: Verify Your Email</h2>
+  <p>
+    After signing up, check your email inbox for a verification message from OpenAI. Click the verification link to activate your account.
+  </p>
+
+  <h2>Step 3: Access the OpenAI Platform Dashboard</h2>
+  <p>
+    Once logged in, navigate to the OpenAI Platform dashboard by going to 
+    <a href="https://platform.openai.com" target="_blank" rel="noopener noreferrer">https://platform.openai.com</a>. 
+    This is where you manage your API keys, billing, usage, and settings.
+  </p>
+
+  <h2>Step 4: Generate Your API Key</h2>
+  <ul>
+    <li>On the dashboard, find the section labeled <strong>API Keys</strong> or <strong>View API Keys</strong>.</li>
+    <li>Click on <strong>Create new secret key</strong>.</li>
+    <li>The system will generate a new API key for you. Make sure to copy this key immediately and store it securely. You won’t be able to view the full key again for security reasons.</li>
+  </ul>
+
+  <h2>Step 5: Secure Your API Key</h2>
+  <p>
+    Treat your API key like a password. Do not share it publicly or hard-code it in client-side applications. Use environment variables or secure vaults to keep your keys safe.
+  </p>
+
+  <h2>Step 6: Start Using the API</h2>
+  <p>
+    With your API key, you can now authenticate requests to OpenAI’s API. Typically, you’ll include it in your HTTP request headers like this:
+  </p>
+  <pre><code>Authorization: Bearer YOUR_API_KEY_HERE
+</code></pre>
+  <p>Replace <code>YOUR_API_KEY_HERE</code> with your actual API key.</p>
+
+  <hr />
+
+  <h3>Additional Tips</h3>
+  <ul>
+    <li><strong>Billing:</strong> Depending on your usage, you may need to add billing information to your account to avoid interruptions.</li>
+    <li><strong>Rate Limits:</strong> Be aware of rate limits and usage quotas associated with your plan.</li>
+    <li><strong>Documentation:</strong> Refer to 
+      <a href="https://platform.openai.com/docs" target="_blank" rel="noopener noreferrer">
+        OpenAI’s API documentation
+      </a> 
+      for detailed guides and example code.
+    </li>
+  </ul>
+
+  <p>
+    Getting API credentials is the first step toward integrating OpenAI’s AI capabilities into your projects. Follow these steps, and you’ll be up and running in no time!
+  </p>
+</article>
+</body>
+</html>
