@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>How to Get API Credentials for the OpenAI API</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --text-color: #c9d1d9;
+            --accent-color: #00FFD1;
+            --link-hover: #1f6feb;
+            --code-bg: #161b22;
+            --border-color: #30363d;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 1rem;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row;
+                justify-content: center;
+                gap: 2rem;
+            }
+        }
+
+        article {
+            max-width: 700px;
+            background-color: #161b22;
+            padding: 1.5rem 1rem 2rem 1rem;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(88, 166, 255, 0.2);
+            flex: 2;
+        }
+
+        .sidebar {
+            background-color: #161b22;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 0 15px rgba(88, 166, 255, 0.2);
+            max-width: 300px;
+            flex: 1;
+            height: fit-content;
+        }
+
+        .sidebar h3 {
+            color: #c9d1d9;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 0.75rem;
+        }
+
+        h1, h2, h3 {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        p, li {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            word-break: break-word;
+        }
+
+        a:hover, a:focus {
+            color: var(--link-hover);
+            text-decoration: underline;
+        }
+
+        pre, code {
+            background-color: var(--code-bg);
+            color: #f0f6fc;
+            font-family: 'Fira Mono', Consolas, Monaco, 'Courier New', monospace;
+        }
+
+        pre {
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+
+        code {
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <article>
+        <h1>How to Install Postgres Locally on MacOS with Homebrew</h1>
+
+        <p>
+            PostgreSQL is a powerful, open-source relational database system. Installing it on macOS using Homebrew is one of the easiest and most flexible ways to get started. This guide walks you through the process.
+        </p>
+
+        <h2>Step 1: Install Homebrew (If You Haven’t Already)</h2>
+        <p>
+            Homebrew is a package manager for macOS. If you don’t have it yet, you can install it by running the following command in your terminal:
+        </p>
+        <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+</code></pre>
+
+        <h2>Step 2: Install PostgreSQL</h2>
+        <p>
+            To install PostgreSQL using Homebrew, simply run:
+        </p>
+        <pre><code>brew install postgresql</code></pre>
+        <p>
+            This will download and install the latest version of PostgreSQL available via Homebrew.
+        </p>
+
+        <h2>Step 3: Start the PostgreSQL Service</h2>
+        <p>
+            Once installed, you can start the PostgreSQL server using:
+        </p>
+        <pre><code>brew services start postgresql</code></pre>
+
+        <h2>Step 4: Verify the Installation</h2>
+        <p>
+            You can confirm PostgreSQL is working by checking the version:
+        </p>
+        <pre><code>psql --version</code></pre>
+        <p>
+            And then try launching the PostgreSQL shell:
+        </p>
+        <pre><code>psql postgres</code></pre>
+
+        <h2>Step 5: Create a Database</h2>
+        <p>
+            You can create a new database using:
+        </p>
+        <pre><code>createdb my_database_name</code></pre>
+        <p>
+            Replace <code>my_database_name</code> with the name of your desired database.
+        </p>
+
+        <hr />
+
+        <h3>Troubleshooting Tips</h3>
+        <ul>
+            <li><strong>Permission Issues:</strong> Use <code>sudo</code> cautiously if you hit permission errors.</li>
+            <li><strong>Service Doesn’t Start:</strong> Try <code>brew services restart postgresql</code>.</li>
+            <li><strong>Port Conflicts:</strong> Ensure no other database service is running on port 5432.</li>
+        </ul>
+
+        <p>
+            That’s it! PostgreSQL should now be installed and running on your Mac. You’re ready to start developing locally with a reliable relational database.
+        </p>
+    </article>
+
+    <aside class="sidebar">
+        <h3>Related Articles</h3>
+        <ul>
+            <li><a href="/">How to Get API Credentials for the OpenAI API</a></li>
+        </ul>
+    </aside>
+</div>
+</body>
+</html>
