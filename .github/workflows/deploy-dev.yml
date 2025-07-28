@@ -3,7 +3,7 @@ name: Deploy to VPS
 on:
   push:
     branches:
-      - main
+      - dev
 
 jobs:
   deploy:
@@ -19,6 +19,5 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: deploy
           key: ${{ secrets.DEPLOY_SSH_KEY }}
-          source: "."
+          source: "./public/*"
           target: "/var/www/html/${{ secrets.WEBSITE_NAME }}"
-
