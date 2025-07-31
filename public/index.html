@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>How to Unpack `.tar.gz` Files on Debian Linux</title>
+<style>
+        :root {
+            --bg-color: #0d1117;
+            --text-color: #c9d1d9;
+            --accent-color: #00FFD1;
+            --link-hover: #1f6feb;
+            --code-bg: #0d1117;
+            --border-color: #30363d;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 1rem;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row;
+                justify-content: center;
+                gap: 2rem;
+            }
+        }
+
+        article {
+            max-width: 700px;
+            background-color: #161b22;
+            padding: 1.5rem 1rem 2rem 1rem;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(88, 166, 255, 0.2);
+            flex: 2;
+        }
+
+        .sidebar {
+            background-color: #161b22;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 0 15px rgba(88, 166, 255, 0.2);
+            max-width: 300px;
+            flex: 1;
+            height: fit-content;
+        }
+
+        .sidebar h3 {
+            color: #c9d1d9;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 0.75rem;
+        }
+
+        h1, h2, h3 {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        p, li {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            word-break: break-word;
+        }
+
+        a:hover, a:focus {
+            color: var(--link-hover);
+            text-decoration: underline;
+        }
+
+        pre, code {
+            background-color: var(--code-bg);
+            color: #f0f6fc;
+            font-family: 'Fira Mono', Consolas, Monaco, 'Courier New', monospace;
+        }
+
+        pre {
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color)
+        }
+
+        /* Optional: Smoother, cleaner scrollbars for WebKit browsers */
+        pre::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        pre::-webkit-scrollbar-track {
+            background: #1c1f24;
+        }
+
+        pre::-webkit-scrollbar-thumb {
+            background-color: #444c56;
+            border-radius: 4px;
+        }
+
+        code {
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<article>
+<h1 id="how-to-unpack-targz-files-on-debian-linux">How to Unpack <code>.tar.gz</code> Files on Debian Linux</h1>
+<p><code>.tar.gz</code> files are compressed archives commonly used to store collections of files in Linux. They are also known as "tarballs." On Debian and other Linux distributions, you can easily unpack these files using the <code>tar</code> command.</p>
+<p>This guide will show you how to unpack <code>.tar.gz</code> files step by step.</p>
+<hr/>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>A Debian-based system (such as Debian, Ubuntu, or Mint)</li>
+<li>Access to the terminal</li>
+</ul>
+<hr/>
+<h2 id="step-1-open-the-terminal">Step 1: Open the Terminal</h2>
+<p>You can open the terminal by pressing <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd> or by searching for "Terminal" in your applications menu.</p>
+<hr/>
+<h2 id="step-2-navigate-to-the-directory-containing-the-targz-file">Step 2: Navigate to the Directory Containing the <code>.tar.gz</code> File</h2>
+<p>Use the <code>cd</code> command to change directories. For example, if your file is in the <code>Downloads</code> directory:</p>
+<pre class="codehilite"><code class="language-bash">cd ~/Downloads
+</code></pre>
+<hr/>
+<h2 id="step-3-unpack-the-targz-file">Step 3: Unpack the <code>.tar.gz</code> File</h2>
+<p>Use the following command to extract the contents:</p>
+<pre class="codehilite"><code class="language-bash">tar -xzf filename.tar.gz
+</code></pre>
+<ul>
+<li>Replace <code>filename.tar.gz</code> with the actual name of your file.</li>
+<li>This command will extract the files into the current directory.</li>
+</ul>
+<h3 id="breakdown-of-the-command">Breakdown of the Command</h3>
+<ul>
+<li><code>tar</code> : The archiving tool</li>
+<li><code>-x</code> : Extract files</li>
+<li><code>-z</code> : Filter the archive through gzip</li>
+<li><code>-f</code> : Use the following filename</li>
+</ul>
+<hr/>
+<h2 id="step-4-optional-extract-to-a-specific-directory">Step 4: (Optional) Extract to a Specific Directory</h2>
+<p>If you want to extract the files to a different directory, use the <code>-C</code> option:</p>
+<pre class="codehilite"><code class="language-bash">tar -xzf filename.tar.gz -C /path/to/destination/
+</code></pre>
+<p>Replace <code>/path/to/destination/</code> with the path to your desired folder.</p>
+<hr/>
+<h2 id="step-5-verify-the-extracted-files">Step 5: Verify the Extracted Files</h2>
+<p>List the contents of the directory to check the extracted files:</p>
+<pre class="codehilite"><code class="language-bash">ls
+</code></pre>
+<hr/>
+<h2 id="additional-tips">Additional Tips</h2>
+<ul>
+<li>To see the contents of a <code>.tar.gz</code> file without extracting:
+  <code>bash
+  tar -tzf filename.tar.gz</code></li>
+<li>If you get a <code>command not found</code> error, install <code>tar</code> with:
+  <code>bash
+  sudo apt update &amp;&amp; sudo apt install tar</code></li>
+</ul>
+<hr/>
+<h2 id="summary">Summary</h2>
+<p>Unpacking <code>.tar.gz</code> files on Debian is simple with the <code>tar</code> command. Just use <code>tar -xzf filename.tar.gz</code> in the terminal, and your files will be extracted quickly and efficiently.</p>
+</article>
+<aside class="sidebar">
+<h3>Related Articles</h3>
+<ul><li><a href="/how-to-change-author-details-in-git.html">How to Change Author Details in Git</a></li><li><a href="/postgres-macos.html">How to install Postgres locally on MacOS with Homebrew</a></li><li><a href="/openai-api-credentials.html">How to Get API Credentials for the OpenAI API</a></li></ul>
+</aside>
+</div>
+</body>
+</html>

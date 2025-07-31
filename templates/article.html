@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>How to Get API Credentials for the OpenAI API</title>
+    <title>{{ title }}</title>
     <style>
         :root {
             --bg-color: #0d1117;
@@ -142,66 +141,8 @@
 <body>
 <div class="container">
     <article>
-        <h1>How to Change Author Details in Git</h1>
-
-        <p>
-            Whether you're correcting a past mistake or updating your credentials after switching email addresses, modifying author details in Git can be essential for maintaining clean, accurate commit history. In this guide, we’ll walk you through how to change the author name and email for future commits as well as for past commits.
-        </p>
-
-        <h2>Change Author Details for Future Commits</h2>
-        <p>
-            To change the name and email Git uses for your commits going forward, use the following commands:
-        </p>
-       <pre><code>
-git config --global user.name "Your New Name"
-git config --global user.email "your.email@example.com"
-       </code></pre>
-        <h3>Notes:</h3>
-        <ul>
-            <li>Use the <code>--global</code> flag to apply these settings globally across all repositories on your machine.</li>
-            <li>If you want to set these details for a specific repository only, navigate to that repository and run the commands without the <code>--global</code> flag.</li>
-        </ul>
-        <pre><code>
-git config user.name "Your New Name"
-git config user.email "your.email@example.com"
-            </code></pre>
-        <h2>Change Author Details for Past Commits (Interactive)</h2>
-        <p>
-            If you need to rewrite the author information in past commits, you can use an interactive rebase (for recent commits):
-        </p>
-        <pre><code>
-git rebase -i HEAD~n
-            </code></pre>
-        <p>Replace <code>n</code> with the number of commits you want to change. When the editor opens:</p>
-        <ol>
-            <li>Change pick to edit next to the commits you want to modify.</li>
-            <li>For each commit marked for editing, run:</li>
-        </ol>
-        <pre><code>
-git commit --amend --author="New Name &lt;new.email@example.com&gt;"
-            </code></pre>
-        <ol start="3">
-            <li>Then continue the rebase with:</li>
-        </ol>
-        <pre><code>
-git rebase --continue
-            </code></pre>
-        <h2>Verifying Changes</h2>
-        <p>
-            To verify what Git is currently using as your name and email:
-        </p>
-        <pre><code>
-git config user.name
-git config user.email
-            </code></pre>
-        <p>
-            To check what’s in the commits:
-        </p>
-        <pre><code>
-git log --pretty=format:"%h %an <%ae> - %s"
-        </code></pre>
+        {{ content | safe }}
     </article>
-
     <aside class="sidebar">
         <h3>Related Articles</h3>
         <ul>
@@ -209,6 +150,6 @@ git log --pretty=format:"%h %an <%ae> - %s"
             <li><a href="/openai-api-credentials.html">How to Get API Credentials for the OpenAI API</a></li>
         </ul>
     </aside>
-</div>
+    </div>
 </body>
 </html>
