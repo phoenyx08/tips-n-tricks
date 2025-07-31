@@ -1,10 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>How to Get API Credentials for the OpenAI API</title>
-    <style>
+<meta charset="utf-8"/>
+<title>How to Unpack `.tar.gz` Files on Debian Linux</title>
+<style>
         :root {
             --bg-color: #0d1117;
             --text-color: #c9d1d9;
@@ -141,74 +141,69 @@
 </head>
 <body>
 <div class="container">
-    <article>
-        <h1>How to Change Author Details in Git</h1>
-
-        <p>
-            Whether you're correcting a past mistake or updating your credentials after switching email addresses, modifying author details in Git can be essential for maintaining clean, accurate commit history. In this guide, we’ll walk you through how to change the author name and email for future commits as well as for past commits.
-        </p>
-
-        <h2>Change Author Details for Future Commits</h2>
-        <p>
-            To change the name and email Git uses for your commits going forward, use the following commands:
-        </p>
-       <pre><code>
-git config --global user.name "Your New Name"
-git config --global user.email "your.email@example.com"
-       </code></pre>
-        <h3>Notes:</h3>
-        <ul>
-            <li>Use the <code>--global</code> flag to apply these settings globally across all repositories on your machine.</li>
-            <li>If you want to set these details for a specific repository only, navigate to that repository and run the commands without the <code>--global</code> flag.</li>
-        </ul>
-        <pre><code>
-git config user.name "Your New Name"
-git config user.email "your.email@example.com"
-            </code></pre>
-        <h2>Change Author Details for Past Commits (Interactive)</h2>
-        <p>
-            If you need to rewrite the author information in past commits, you can use an interactive rebase (for recent commits):
-        </p>
-        <pre><code>
-git rebase -i HEAD~n
-            </code></pre>
-        <p>Replace <code>n</code> with the number of commits you want to change. When the editor opens:</p>
-        <ol>
-            <li>Change pick to edit next to the commits you want to modify.</li>
-            <li>For each commit marked for editing, run:</li>
-        </ol>
-        <pre><code>
-git commit --amend --author="New Name &lt;new.email@example.com&gt;"
-            </code></pre>
-        <ol start="3">
-            <li>Then continue the rebase with:</li>
-        </ol>
-        <pre><code>
-git rebase --continue
-            </code></pre>
-        <h2>Verifying Changes</h2>
-        <p>
-            To verify what Git is currently using as your name and email:
-        </p>
-        <pre><code>
-git config user.name
-git config user.email
-            </code></pre>
-        <p>
-            To check what’s in the commits:
-        </p>
-        <pre><code>
-git log --pretty=format:"%h %an <%ae> - %s"
-        </code></pre>
-    </article>
-
-    <aside class="sidebar">
-        <h3>Related Articles</h3>
-        <ul>
-            <li><a href="/postgres-macos.html">How to install Postgres locally on MacOS with Homebrew</a></li>
-            <li><a href="/openai-api-credentials.html">How to Get API Credentials for the OpenAI API</a></li>
-        </ul>
-    </aside>
+<article>
+<h1 id="how-to-unpack-targz-files-on-debian-linux">How to Unpack <code>.tar.gz</code> Files on Debian Linux</h1>
+<p><code>.tar.gz</code> files are compressed archives commonly used to store collections of files in Linux. They are also known as "tarballs." On Debian and other Linux distributions, you can easily unpack these files using the <code>tar</code> command.</p>
+<p>This guide will show you how to unpack <code>.tar.gz</code> files step by step.</p>
+<hr/>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>A Debian-based system (such as Debian, Ubuntu, or Mint)</li>
+<li>Access to the terminal</li>
+</ul>
+<hr/>
+<h2 id="step-1-open-the-terminal">Step 1: Open the Terminal</h2>
+<p>You can open the terminal by pressing <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd> or by searching for "Terminal" in your applications menu.</p>
+<hr/>
+<h2 id="step-2-navigate-to-the-directory-containing-the-targz-file">Step 2: Navigate to the Directory Containing the <code>.tar.gz</code> File</h2>
+<p>Use the <code>cd</code> command to change directories. For example, if your file is in the <code>Downloads</code> directory:</p>
+<pre class="codehilite"><code class="language-bash">cd ~/Downloads
+</code></pre>
+<hr/>
+<h2 id="step-3-unpack-the-targz-file">Step 3: Unpack the <code>.tar.gz</code> File</h2>
+<p>Use the following command to extract the contents:</p>
+<pre class="codehilite"><code class="language-bash">tar -xzf filename.tar.gz
+</code></pre>
+<ul>
+<li>Replace <code>filename.tar.gz</code> with the actual name of your file.</li>
+<li>This command will extract the files into the current directory.</li>
+</ul>
+<h3 id="breakdown-of-the-command">Breakdown of the Command</h3>
+<ul>
+<li><code>tar</code> : The archiving tool</li>
+<li><code>-x</code> : Extract files</li>
+<li><code>-z</code> : Filter the archive through gzip</li>
+<li><code>-f</code> : Use the following filename</li>
+</ul>
+<hr/>
+<h2 id="step-4-optional-extract-to-a-specific-directory">Step 4: (Optional) Extract to a Specific Directory</h2>
+<p>If you want to extract the files to a different directory, use the <code>-C</code> option:</p>
+<pre class="codehilite"><code class="language-bash">tar -xzf filename.tar.gz -C /path/to/destination/
+</code></pre>
+<p>Replace <code>/path/to/destination/</code> with the path to your desired folder.</p>
+<hr/>
+<h2 id="step-5-verify-the-extracted-files">Step 5: Verify the Extracted Files</h2>
+<p>List the contents of the directory to check the extracted files:</p>
+<pre class="codehilite"><code class="language-bash">ls
+</code></pre>
+<hr/>
+<h2 id="additional-tips">Additional Tips</h2>
+<ul>
+<li>To see the contents of a <code>.tar.gz</code> file without extracting:
+  <code>bash
+  tar -tzf filename.tar.gz</code></li>
+<li>If you get a <code>command not found</code> error, install <code>tar</code> with:
+  <code>bash
+  sudo apt update &amp;&amp; sudo apt install tar</code></li>
+</ul>
+<hr/>
+<h2 id="summary">Summary</h2>
+<p>Unpacking <code>.tar.gz</code> files on Debian is simple with the <code>tar</code> command. Just use <code>tar -xzf filename.tar.gz</code> in the terminal, and your files will be extracted quickly and efficiently.</p>
+</article>
+<aside class="sidebar">
+<h3>Related Articles</h3>
+<ul><li><a href="/how-to-change-author-details-in-git.html">How to Change Author Details in Git</a></li><li><a href="/postgres-macos.html">How to install Postgres locally on MacOS with Homebrew</a></li><li><a href="/openai-api-credentials.html">How to Get API Credentials for the OpenAI API</a></li></ul>
+</aside>
 </div>
 </body>
 </html>
