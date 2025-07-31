@@ -4,14 +4,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>How to Install Postgres Locally on MacOS with Homebrew</title>
+<title>How to Change Author Details in Git</title>
 <style>
         :root {
             --bg-color: #0d1117;
             --text-color: #c9d1d9;
             --accent-color: #00FFD1;
             --link-hover: #1f6feb;
-            --code-bg: #161b22;
+            --code-bg: #0d1117;
             --border-color: #30363d;
         }
 
@@ -111,6 +111,7 @@
             font-size: 0.95rem;
             overflow-x: auto;
             margin-bottom: 1rem;
+            border: 1px solid var(--border-color)
         }
 
         /* Optional: Smoother, cleaner scrollbars for WebKit browsers */
@@ -142,60 +143,66 @@
 <body>
 <div class="container">
 <article>
-<h1>How to Install Postgres Locally on MacOS with Homebrew</h1>
+<h1>How to Change Author Details in Git</h1>
 <p>
-            PostgreSQL is a powerful, open-source relational database system. Installing it on macOS using Homebrew is one of the easiest and most flexible ways to get started. This guide walks you through the process.
+            Whether you're correcting a past mistake or updating your credentials after switching email addresses, modifying author details in Git can be essential for maintaining clean, accurate commit history. In this guide, we’ll walk you through how to change the author name and email for future commits as well as for past commits.
         </p>
-<h2>Step 1: Install Homebrew (If You Haven’t Already)</h2>
+<h2>Change Author Details for Future Commits</h2>
 <p>
-            Homebrew is a package manager for macOS. If you don’t have it yet, you can install it by running the following command in your terminal:
+            To change the name and email Git uses for your commits going forward, use the following commands:
         </p>
-<pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-</code></pre>
-<h2>Step 2: Install PostgreSQL</h2>
-<p>
-            To install PostgreSQL using Homebrew, simply run:
-        </p>
-<pre><code>brew install postgresql</code></pre>
-<p>
-            This will download and install the latest version of PostgreSQL available via Homebrew.
-        </p>
-<h2>Step 3: Start the PostgreSQL Service</h2>
-<p>
-            Once installed, you can start the PostgreSQL server using:
-        </p>
-<pre><code>brew services start postgresql</code></pre>
-<h2>Step 4: Verify the Installation</h2>
-<p>
-            You can confirm PostgreSQL is working by checking the version:
-        </p>
-<pre><code>psql --version</code></pre>
-<p>
-            And then try launching the PostgreSQL shell:
-        </p>
-<pre><code>psql postgres</code></pre>
-<h2>Step 5: Create a Database</h2>
-<p>
-            You can create a new database using:
-        </p>
-<pre><code>createdb my_database_name</code></pre>
-<p>
-            Replace <code>my_database_name</code> with the name of your desired database.
-        </p>
-<hr/>
-<h3>Troubleshooting Tips</h3>
+<pre><code>
+git config --global user.name "Your New Name"
+git config --global user.email "your.email@example.com"
+       </code></pre>
+<h3>Notes:</h3>
 <ul>
-<li><strong>Permission Issues:</strong> Use <code>sudo</code> cautiously if you hit permission errors.</li>
-<li><strong>Service Doesn’t Start:</strong> Try <code>brew services restart postgresql</code>.</li>
-<li><strong>Port Conflicts:</strong> Ensure no other database service is running on port 5432.</li>
+<li>Use the <code>--global</code> flag to apply these settings globally across all repositories on your machine.</li>
+<li>If you want to set these details for a specific repository only, navigate to that repository and run the commands without the <code>--global</code> flag.</li>
 </ul>
+<pre><code>
+git config user.name "Your New Name"
+git config user.email "your.email@example.com"
+            </code></pre>
+<h2>Change Author Details for Past Commits (Interactive)</h2>
 <p>
-            That’s it! PostgreSQL should now be installed and running on your Mac. You’re ready to start developing locally with a reliable relational database.
+            If you need to rewrite the author information in past commits, you can use an interactive rebase (for recent commits):
         </p>
+<pre><code>
+git rebase -i HEAD~n
+            </code></pre>
+<p>Replace <code>n</code> with the number of commits you want to change. When the editor opens:</p>
+<ol>
+<li>Change pick to edit next to the commits you want to modify.</li>
+<li>For each commit marked for editing, run:</li>
+</ol>
+<pre><code>
+git commit --amend --author="New Name &lt;new.email@example.com&gt;"
+            </code></pre>
+<ol start="3">
+<li>Then continue the rebase with:</li>
+</ol>
+<pre><code>
+git rebase --continue
+            </code></pre>
+<h2>Verifying Changes</h2>
+<p>
+            To verify what Git is currently using as your name and email:
+        </p>
+<pre><code>
+git config user.name
+git config user.email
+            </code></pre>
+<p>
+            To check what’s in the commits:
+        </p>
+<pre><code>
+git log --pretty=format:"%h %an &lt;%ae&gt; - %s"
+        </code></pre>
 </article>
 <aside class="sidebar">
 <h3>Related Articles</h3>
-<ul><li><a href="/">How to Unpack.tar.gz Files on Debian Linux</a></li><li><a href="/how-to-change-author-details-in-git.html">How to Change Author Details in Git</a></li><li><a href="/openai-api-credentials.html">How to Get API Credentials for the OpenAI API</a></li></ul>
+<ul><li><a href="/">How to Unpack .tar.gz Files on Debian Linux</a></li><li><a href="/postgres-macos.html">How to install Postgres locally on MacOS with Homebrew</a></li><li><a href="/openai-api-credentials.html">How to Get API Credentials for the OpenAI API</a></li></ul>
 </aside>
 </div>
 </body>
