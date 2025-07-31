@@ -13,11 +13,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Copy files via SSH
-        uses: appleboy/scp-action@v0.1.3
+#      - name: Copy files via SSH
+#        uses: appleboy/scp-action@v0.1.3
+#        with:
+#          host: ${{ secrets.VPS_HOST }}
+#          username: deploy
+#          key: ${{ secrets.DEPLOY_SSH_KEY }}
+#          source: "public/*"
+#          target: "/var/www/html/${{ secrets.WEBSITE_NAME }}"
+      - name: Deploy files via rsync
+        uses: burnett01/rsync-deployments@5.2
         with:
-          host: ${{ secrets.VPS_HOST }}
-          username: deploy
-          key: ${{ secrets.DEPLOY_SSH_KEY }}
-          source: "public/*"
-          target: "/var/www/html/${{ secrets.WEBSITE_NAME }}"
+          switches: -avzr --delete
+          path: public/
+          remote_path: /var/www/html/${{ secrets.WEBSITE_NAME }}
+          remote_host: ${{ secrets.VPS_HOST }}
+          remote_user: deploy
+          remote_key: ${{ secrets.DEPLOY_SSH_KEY }}
